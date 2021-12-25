@@ -40,11 +40,11 @@ public:
 
 		wcscpy_s(cfi.FaceName, L"Terminal");
 
-		CONSOLE_SCREEN_BUFFER_INFO info;
-		GetConsoleScreenBufferInfo(console, &info);
-
 		if (!SetCurrentConsoleFontEx(console, false, &cfi))
 			std::cout << "Failed to load font" << "\n";
+
+		CONSOLE_SCREEN_BUFFER_INFO info;
+		GetConsoleScreenBufferInfo(console, &info);
 
 		printf("Maximum size: %d, %d\n", info.dwMaximumWindowSize.X, info.dwMaximumWindowSize.Y);
 
